@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PZMAP SYSTEM	"http://flatpack.sourceforge.net/flatpack.dtd" >
+<PZMAP>
+	<COLUMN name="RECORD_CODE" length="3" />
+	<COLUMN name="CLIENT_TYPE" length="4" />
+	<COLUMN name="CLIENT_NUMBER" length="4" />
+	<COLUMN name="ACCOUNT_NUMBER" length="4" />
+	<COLUMN name="SUBACCOUNT_NUMBER" length="4" />
+	<COLUMN name="OPPOSITE_PARTY_CODE" length="6" />
+	<COLUMN name="PRODUCT_GROUP_CODE" length="2" />
+	<COLUMN name="EXCHANGE_CODE" length="4" />
+	<COLUMN name="SYMBOL" length="6" />
+	<COLUMN name="EXPIRATION_DATE" length="8" />
+	<COLUMN name="CURRENCY_CODE" length="3" />
+	<COLUMN name="MOVEMENT_CODE" length="2" />
+	<COLUMN name="BUY_SELL_CODE" length="1" />
+	<COLUMN name="QUANTITY_LONG_SIGN" length="1" />
+	<COLUMN name="QUANTITY_LONG" length="10" />
+	<COLUMN name="QUANTITY_SHORT_SIGN" length="1" />
+	<COLUMN name="QUANTITY_SHORT" length="10" />
+	<COLUMN name="BROKER_FEE_DEC" length="12" />
+	<COLUMN name="BROKER_FEE_D_C" length="1" />
+	<COLUMN name="BROKER_FEE_CUR_CODE" length="3" />
+	<COLUMN name="CLEARING_FEE_DEC" length="12" />
+	<COLUMN name="CLEARING_FEE_D_C" length="1" />
+	<COLUMN name="CLEARING_FEE_CUR_CODE" length="3" />
+	<COLUMN name="COMMISSION" length="12" />
+	<COLUMN name="COMMISSION_D_C" length="1" />
+	<COLUMN name="COMMISSION_CUR_CODE" length="3" />
+	<COLUMN name="TRANSACTION_DATE" length="8" />
+	<COLUMN name="FUTURE_REFERENCE" length="6" />
+	<COLUMN name="TICKET_NUMBER" length="6" />
+	<COLUMN name="EXTERNAL_NUMBER" length="6" />
+	<COLUMN name="TRANSACTION_PRICE_DEC" length="15" />
+	<COLUMN name="TRADER_INITIALS" length="6" />
+	<COLUMN name="OPPOSITE_TRADER_ID" length="7" />
+	<COLUMN name="OPEN_CLOSE_CODE" length="1" />
+	
+</PZMAP> 
