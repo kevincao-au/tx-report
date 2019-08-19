@@ -101,29 +101,19 @@ class ReportSummaryProcessorTest {
 	}
 	
 	
-	@DisplayName("Multiple transactions - Multiple clients with multiple products")
+	@DisplayName("Multiple transactions - One client with one product (30)")
 	@Test
-	@Disabled
 	void testParse4() throws IOException {
 		ReportSummaryProcessor reportSummaryProcessor = ReportSummaryProcessor.getInstance();
 		try (Reader fileReader = getFileReader("/input/test_input_04.txt")) {
 			Map<ClientProductTuple, Integer> tuple1 = reportSummaryProcessor.parse(fileReader);
 			
-			assertEquals(4, tuple1.size(), "total size must be 4!");
+			assertEquals(1, tuple1.size(), "total size must be 1!");
 			
 			Map<ClientProductTuple, Integer> expected = new HashMap<>();
 			expected.put(new ClientProductTuple(new ClientInfo("CL", "4321", "0003", "0001"), 
-					new ProductInfo("CME", "FU", "N1", "20100910")), -48);
-			
-			expected.put(new ClientProductTuple(new ClientInfo("CL", "1234", "0003", "0001"), 
-					new ProductInfo("CME", "FU", "NK.", "20100910")), -54);
-			
-			expected.put(new ClientProductTuple(new ClientInfo("CL", "4321", "0002", "0001"), 
-					new ProductInfo("SGX", "FU", "NK", "20100910")), 6);
-
-			expected.put(new ClientProductTuple(new ClientInfo("CL", "1234", "0003", "0001"), 
-					new ProductInfo("CME", "FU", "N1", "20100910")), 6);
-
+						new ProductInfo("CME", "FU", "N1", "20100910")), 30);
+						
 			assertIterableEquals(expected.entrySet(), tuple1.entrySet(), "It is not matched!");
 		}
 	}
@@ -167,26 +157,8 @@ class ReportSummaryProcessorTest {
 	}
 	
 	
-	@DisplayName("Multiple transactions - One client with one product (30)")
 	@Test
-	void testParse7() throws IOException {
-		ReportSummaryProcessor reportSummaryProcessor = ReportSummaryProcessor.getInstance();
-		try (Reader fileReader = getFileReader("/input/test_input_07.txt")) {
-			Map<ClientProductTuple, Integer> tuple1 = reportSummaryProcessor.parse(fileReader);
-			
-			assertEquals(1, tuple1.size(), "total size must be 1!");
-			
-			Map<ClientProductTuple, Integer> expected = new HashMap<>();
-			expected.put(new ClientProductTuple(new ClientInfo("CL", "4321", "0003", "0001"), 
-						new ProductInfo("CME", "FU", "N1", "20100910")), 30);
-						
-			assertIterableEquals(expected.entrySet(), tuple1.entrySet(), "It is not matched!");
-		}
-	}
-
-	
-	@Test
-	//@Disabled
+	@Disabled
 	void testProcess() {
 		ReportSummaryProcessor reportSummaryProcessor = ReportSummaryProcessor.getInstance();
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter("C:\\dev\\test_input_04.csv"))) {
