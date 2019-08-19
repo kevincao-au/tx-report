@@ -24,7 +24,7 @@ public class TxReport {
 
 		logger.info("Input File : {}", txtFileName);
 
-		ReportSummaryProcessor reportSummaryProcessor = new ReportSummaryProcessor();
+		ReportSummaryProcessor reportSummaryProcessor = ReportSummaryProcessor.getInstance();
 		
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(csvFileName))) {
 			

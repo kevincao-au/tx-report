@@ -56,13 +56,19 @@ public class ClientInfo {
         if (o == null || getClass() != o.getClass()) return false;
         ClientInfo that = (ClientInfo) o;
         return clientType.equals(that.clientType) &&
-                clientNumber.equals(that.clientNumber) &&
-                accountNumber.equals(that.accountNumber) &&
-                subaccountNumber.equals(that.subaccountNumber);
+                clientNumber.equals(that.clientNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(clientType, clientNumber, accountNumber, subaccountNumber);
+        return Objects.hash(clientType, clientNumber);
     }
+
+	@Override
+	public String toString() {
+		return "ClientInfo [clientType=" + clientType + ", clientNumber=" + clientNumber + ", accountNumber="
+				+ accountNumber + ", subaccountNumber=" + subaccountNumber + "]";
+	}
+    
+    
 }

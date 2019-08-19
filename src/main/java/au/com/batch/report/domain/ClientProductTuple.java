@@ -46,4 +46,11 @@ public class ClientProductTuple {
     public int hashCode() {
         return Objects.hash(clientInfo, productInfo);
     }
+
+	@Override
+	public String toString() {
+		return "ClientProductTuple [clientInfo=" + clientInfo + ", productInfo=" + productInfo + "]";
+	}
+    
+    
 }

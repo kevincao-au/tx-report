@@ -22,13 +22,24 @@ import net.sf.flatpack.brparse.BuffReaderParseFactory;
 public class ReportSummaryProcessor {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 		
-	public final static InputStream TX_PZMAP_XML_INPUT_STREAM;
+	private static ReportSummaryProcessor instance = null;
 	
-	static {
-		TX_PZMAP_XML_INPUT_STREAM = ReportSummaryProcessor.class.getResourceAsStream("/tx.pzmap.xml");
+	
+	private ReportSummaryProcessor() {
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
+	public static ReportSummaryProcessor getInstance() {
+		if (instance == null) {
+			instance = new ReportSummaryProcessor();
+		}
+		
+		return instance;
+	}
+	
 	/**
 	 *
 	 * @param fileReader
@@ -36,7 +47,7 @@ public class ReportSummaryProcessor {
 	 */
 	public Map<ClientProductTuple, Integer> parse(final Reader fileReader) {
 		Parser txParser = BuffReaderParseFactory.getInstance().newFixedLengthParser(
-				new InputStreamReader(TX_PZMAP_XML_INPUT_STREAM), fileReader);
+				new InputStreamReader(getClass().getResourceAsStream("/tx.pzmap.xml")), fileReader);
 
 		return txParser.parseAsStream().stream()
 				.collect(groupingBy(r -> new ClientProductTuple(

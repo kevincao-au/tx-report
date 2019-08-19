@@ -57,12 +57,19 @@ public class ProductInfo {
         ProductInfo that = (ProductInfo) o;
         return exchangeCode.equals(that.exchangeCode) &&
                 productGroupCode.equals(that.productGroupCode) &&
-                symbol.equals(that.symbol) &&
-                expirationDate.equals(that.expirationDate);
+                symbol.equals(that.symbol);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(exchangeCode, productGroupCode, symbol, expirationDate);
+        return Objects.hash(exchangeCode, productGroupCode, symbol);
     }
+
+	@Override
+	public String toString() {
+		return "ProductInfo [exchangeCode=" + exchangeCode + ", productGroupCode=" + productGroupCode + ", symbol="
+				+ symbol + "]";
+	}
+    
+    
 }
